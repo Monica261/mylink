@@ -6,7 +6,7 @@
 	em Drawer.
 </p>
 
-<h2>Telas do app:</h2>
+<!--<h2>Telas do app:</h2>
 
 <div float="left">
 	<img src="Home.png" width="230" style="padding: 20px" />
@@ -18,4 +18,4 @@
 	<img src="MyLinks.png" width="230" style="padding: 20px" />
 	<img src="MyLinks-1.png" width="230" style="padding: 20px" />
 	<img src="MyLinks-Swipe.png" width="230" style="padding: 20px" />
-</div>
+</div>-->
