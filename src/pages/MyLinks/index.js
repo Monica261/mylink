@@ -19,11 +19,13 @@ export default function Home(){
 
             <Title>Meus links</Title>
 
-            <ListLinks data={[{id: 1, link:'test.com'}, {id: 2, link:'google.com'}]}
+            <ListLinks 
+            data={[{id: 1, link:'test.com'}, {id: 2, link:'google.com'}]}
             keyExtractor={(item) => String(item.id)}
             renderItem={({item}) => <ListItem data={item}/>}
             contentContainerStyle={{paddingBottom: 20}}
-            showVerticalScrollIndicator={false}/>
+            showVerticalScrollIndicator={false}
+            />
         </Container>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform, Modal } from 'react-native';
+import { TouchableWithoutFeedback, ActivityIndicator, Keyboard, KeyboardAvoidingView, Platform, Modal } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import StatusBarPage from '../../components/StatusBarPage';
@@ -20,24 +20,33 @@ export default function Home() {
 
     const [input, setInput] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState({});
 
     async function handleClick(){
+        setLoading(true);
+
         try{
             const response = await api.post('/shorten', 
             {
                 long_url: input
             })
 
-            console.log(response.data);//axios devolve a resposta aqui dentro
+            setData(response.data);//axios devolve a resposta aqui dentro
+
+            setModalVisible(true);
+
+            Keyboard.dismiss();
+            setLoading(false);
+            setInput('');
 
         }catch{
             alert('ops... algo deu errado');
             Keyboard.dismiss();
             setInput('');
-        }
+            setLoading(false);
 
-        
-        setModalVisible(true);
+        }
 
     }
 
@@ -83,9 +92,15 @@ export default function Home() {
                         </ContainerInput>
 
                         <ButtonLink onPress={ handleClick }>
-                            <ButtonLinkText>
-                                Gerar link
-                            </ButtonLinkText>
+                            {
+                                loading ? (
+                                    <ActivityIndicator color="#121212" size={24}/>
+                                ) : (
+                                    <ButtonLinkText>
+                                        Gerar link
+                                    </ButtonLinkText>
+                                )
+                            }
                         </ButtonLink>
 
                     </ContainerContent>
@@ -93,7 +108,7 @@ export default function Home() {
                 </KeyboardAvoidingView>
 
                 <Modal visible={modalVisible} transparent animationType="slide">
-                    <ModalLink onClose={() => setModalVisible(false)}/>
+                    <ModalLink onClose={() => setModalVisible(false)} data={data} />
                 </Modal>
 
             </LinearGradient>
