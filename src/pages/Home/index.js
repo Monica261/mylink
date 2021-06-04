@@ -14,13 +14,29 @@ import {
     ButtonLink, ButtonLinkText
 } from './styles';
 
+import api from '../../services/api';
+
 export default function Home() {
 
     const [input, setInput] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
 
-    function handleClick(){
-        //alert(`url encurtada ${input}`)
+    async function handleClick(){
+        try{
+            const response = await api.post('/shorten', 
+            {
+                long_url: input
+            })
+
+            console.log(response.data);//axios devolve a resposta aqui dentro
+
+        }catch{
+            alert('ops... algo deu errado');
+            Keyboard.dismiss();
+            setInput('');
+        }
+
+        
         setModalVisible(true);
 
     }
