@@ -1,9 +1,9 @@
 <h1>MyLink</h1>
 
 <p>
-	Encurtador de urls desenvolvido em React Native e consumindo uma API atraves de requisições HTTP,
+	Encurtador de urls desenvolvido em React Native e consumindo API do Bitly atraves de requisições HTTP,
 	toda a interface foi projetada com o foco na experiencia do usuario, contendo navegação de páginas
-	em Drawer.
+	em Drawer, Swipe, tratamento de funções e etc.
 </p>
 
 <!--<h2>Telas do app:</h2>
