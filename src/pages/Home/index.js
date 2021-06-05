@@ -15,6 +15,7 @@ import {
 } from './styles';
 
 import api from '../../services/api';
+import {saveLink} from '../../utils/storeLinks';
 
 export default function Home() {
 
@@ -33,8 +34,9 @@ export default function Home() {
             })
 
             setData(response.data);//axios devolve a resposta aqui dentro
-
             setModalVisible(true);
+
+            saveLink('MyLink', response.data);
 
             Keyboard.dismiss();
             setLoading(false);
