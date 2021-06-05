@@ -6,16 +6,6 @@
 	em Drawer, Swipe, tratamento de funções e etc.
 </p>
 
-<!--<h2>Telas do app:</h2>
-
-<div float="left">
-	<img src="Home.png" width="230" style="padding: 20px" />
-	<img src="Home-1.png" width="230" style="padding: 20px" />
-	<img src="Home-2.png" width="230" style="padding: 20px" />
-</div>
-
-<div float="left">
-	<img src="MyLinks.png" width="230" style="padding: 20px" />
-	<img src="MyLinks-1.png" width="230" style="padding: 20px" />
-	<img src="MyLinks-Swipe.png" width="230" style="padding: 20px" />
-</div>-->
+<video width="400" controls>
+  <source src="myLink.mp4" type="video/mp4">
+</video>
